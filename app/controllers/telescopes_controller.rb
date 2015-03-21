@@ -1,6 +1,6 @@
 class TelescopesController < ApplicationController
   expose(:telescopes)
-  expose(:telescope)
+  expose(:telescope, attributes: :telescope_params)
 
   def create
     if telescope.save
@@ -16,5 +16,16 @@ class TelescopesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def telescope_params
+    params.
+      require(:telescope).
+      permit(
+        :name,
+        slots_attributes: [:id, :scheduled_at, :_destroy],
+      )
   end
 end
