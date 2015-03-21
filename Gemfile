@@ -48,6 +48,7 @@ end
 
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'nested_form'
 gem 'bootstrap-sass'
 gem 'decent_exposure'
 gem 'devise'
