@@ -1,0 +1,2 @@
+module TelescopesHelper
+end

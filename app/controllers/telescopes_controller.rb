@@ -1,0 +1,2 @@
+class TelescopesController < ApplicationController
+end
