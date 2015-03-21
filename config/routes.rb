@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :slots
+
   devise_for :users
   resources :telescopes
 
