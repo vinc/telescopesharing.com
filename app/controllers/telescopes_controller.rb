@@ -18,6 +18,10 @@ class TelescopesController < ApplicationController
     end
   end
 
+  def destroy
+    telescope.destroy
+  end
+
   private
 
   def telescope_params
@@ -25,7 +29,7 @@ class TelescopesController < ApplicationController
       require(:telescope).
       permit(
         :name,
-        slots_attributes: [:id, :scheduled_at, :_destroy],
+        observations_attributes: [:id, :scheduled_at, :_destroy],
       )
   end
 end

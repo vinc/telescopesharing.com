@@ -3,6 +3,6 @@ class Telescope
   field :name, type: String
   field :description, type: String
   belongs_to :user
-  embeds_many :slots
-  accepts_nested_attributes_for :slots, allow_destroy: true
+  embeds_many :observations
+  accepts_nested_attributes_for :observations, allow_destroy: true
 end

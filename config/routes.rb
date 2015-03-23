@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :slots
-
   devise_for :users
-  resources :telescopes
-
   resources :users
+
+  resources :telescopes do
+    resources :observations
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
