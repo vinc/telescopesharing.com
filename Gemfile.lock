@@ -65,11 +65,11 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-datepicker-rails (1.4.0)
-      railties (>= 3.0)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap3-datetimepicker-rails (4.7.14)
+      momentjs-rails (>= 2.8.1)
     bson (2.3.0)
     builder (3.2.2)
     byebug (4.0.3)
@@ -213,8 +213,8 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bootstrap-datepicker-rails
   bootstrap-sass
+  bootstrap3-datetimepicker-rails
   byebug
   coffee-rails (~> 4.1.0)
   decent_exposure

@@ -1,7 +1,9 @@
 $(document).on('ready page:load nested:fieldAdded', function() {
-  $('[type=date]').datepicker({
-    format: 'yyyy-mm-dd',
-    startDate: moment().format('YYYY-MM-DD'),
-    endDate: moment().add(1, 'month').format('YYYY-MM-DD')
+  var format = 'YYYY-MM-DD';
+
+  $('[type=date]').datetimepicker({
+    format: format,
+    minDate: moment().format(format),
+    maxDate: moment().add(1, 'month').format(format)
   });
 });

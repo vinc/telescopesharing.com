@@ -53,5 +53,5 @@ gem "bootstrap-sass"
 gem "decent_exposure"
 gem "devise"
 
-gem "bootstrap-datepicker-rails"
 gem "momentjs-rails"
+gem "bootstrap3-datetimepicker-rails"
