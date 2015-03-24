@@ -1,7 +1,7 @@
 class Telescope
   include Mongoid::Document
-  field :name, type: String
-  field :description, type: String
+  field :name
+  field :description
   belongs_to :user
   embeds_many :observations
   accepts_nested_attributes_for :observations, allow_destroy: true

@@ -6,12 +6,13 @@
 
   <div class="form-actions">
     <%= f.input :name %>
+    <%= f.input :description, as: :text %>
 
     <div class="form-group" style="position:relative">
       <%= f.fields_for :observations do |observation_fields| %>
         <%= observation_fields.input :scheduled_at, as: :date, html5: true, label: "Observation" %>
       <% end %>
-      <%= f.link_to_add 'Add an observation', :observations %>
+      <%= f.link_to_add 'Add an upcomming observation', :observations %>
     </div>
     <%= f.button :submit %>
   </div>

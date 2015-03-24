@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require turbolinks

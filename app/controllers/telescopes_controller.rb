@@ -28,7 +28,7 @@ class TelescopesController < ApplicationController
     params.
       require(:telescope).
       permit(
-        :name,
+        :name, :description,
         observations_attributes: [:id, :scheduled_at, :_destroy],
       )
   end

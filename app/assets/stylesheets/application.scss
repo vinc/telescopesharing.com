@@ -14,6 +14,12 @@
  *= require_self
  */
 
+$font-family-sans-serif: "Raleway", sans-serif;
+$headings-font-family: "Lato", sans-serif;
+$headings-font-weight: 900;
+$headings-color: #555;
+
+@import url(http://fonts.googleapis.com/css?family=Lato:900|Raleway);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datepicker3";

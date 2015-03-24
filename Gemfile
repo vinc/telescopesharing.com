@@ -54,3 +54,4 @@ gem "decent_exposure"
 gem "devise"
 
 gem "bootstrap-datepicker-rails"
+gem "momentjs-rails"
