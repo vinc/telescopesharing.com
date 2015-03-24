@@ -10,7 +10,7 @@
 
     <div class="form-group" style="position:relative">
       <%= f.fields_for :observations do |observation_fields| %>
-        <% if (observation_fields.object.scheduled_at || Date.today) > Date.today %>
+        <% if observation_fields.object.scheduled_at.nil? || observation_fields.object.scheduled_at > Date.today %>
           <%= observation_fields.input :scheduled_at, as: :date, html5: true, label: "Observation" %>
         <% end %>
       <% end %>
