@@ -1,9 +1,18 @@
-<h1>TelescopeSharing</h1>
+<div class="page-header">
+  <h1>TelescopeSharing</h1>
+  <p>Rent a remote telescope and explore the heaven from your home.</p>
+</div>
 
-<p>Rent a remote telescope and explore the heaven from your home.</p>
-
-<ul>
-<% telescopes.each do |telescope| %>
-  <li><%= link_to telescope.name, telescope_path(telescope) %></li>
-<% end %>
-</ul>
+<div class="row">
+  <% telescopes.each do |telescope| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><%= telescope.name %></h3>
+          <p><%= telescope.description %></p>
+          <p><%= link_to "Book an observation", telescope_path(telescope), class: "btn btn-primary", role: "button" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

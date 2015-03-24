@@ -15,9 +15,11 @@
  */
 
 $font-family-sans-serif: "Raleway", sans-serif;
+$body-bg: #222;
+$gray-base: #777;
+$headings-color: #aaa;
 $headings-font-family: "Lato", sans-serif;
 $headings-font-weight: 900;
-$headings-color: #555;
 
 @import url(http://fonts.googleapis.com/css?family=Lato:900|Raleway);
 @import "bootstrap-sprockets";
