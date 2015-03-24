@@ -1,5 +1,5 @@
 class TelescopesController < ApplicationController
-  expose(:telescopes)
+  expose(:telescopes) { Telescope.all }
   expose(:telescope, attributes: :telescope_params)
 
   def create
@@ -20,6 +20,16 @@ class TelescopesController < ApplicationController
 
   def destroy
     telescope.destroy
+  end
+
+  # FIXME: needed only for JSON view
+  # FIXME: Activemodel Serializer is not used by HTML view
+  def show
+    respond_with(telescope)
+  end
+
+  def index
+    respond_with(telescopes)
   end
 
   private

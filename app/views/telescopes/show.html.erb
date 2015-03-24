@@ -1,6 +1,11 @@
 <h1><%= telescope.name %></h1>
 
 <p><%= telescope.description %></p>
+<ul>
+  <% telescope.upcomming_observations.each do |observation| %>
+    <li><%= observation.scheduled_at %></li>
+  <% end %>
+</ul>
 
 <p id="notice"><%= notice %></p>
 

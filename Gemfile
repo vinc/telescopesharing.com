@@ -51,6 +51,7 @@ gem "simple_form", github: "plataformatec/simple_form"
 gem "nested_form"
 gem "bootstrap-sass"
 gem "decent_exposure"
+gem "active_model_serializers", "~> 0.8.0"
 gem "devise"
 
 gem "momentjs-rails"
