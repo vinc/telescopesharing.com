@@ -1,0 +1,22 @@
+<%= simple_form_for([telescope, reservation], html: { class: "form-inline" }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <div class="input-group date" id="datetimepicker-observations">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+      <input type="text" name="reservation[scheduled_at]" value="<%= reservation.scheduled_at %>" class="form-control" />
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(function () {
+      $("#datetimepicker-observations").datetimepicker({
+        format: "YYYY-MM-DD",
+        enabledDates: <%= telescope.upcomming_observations.pluck(:scheduled_at).to_json.html_safe %>
+      });
+    });
+  </script>
+
+  <%= f.button :submit, "Book" %>
+<% end %>

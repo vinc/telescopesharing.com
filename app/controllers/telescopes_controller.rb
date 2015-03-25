@@ -1,6 +1,7 @@
 class TelescopesController < ApplicationController
-  expose(:telescopes) { Telescope.all }
+  expose(:telescopes) { Telescope.all } # FIXME: Activemodel Serializer
   expose(:telescope, attributes: :telescope_params)
+  expose(:reservation) { Reservation.new(telescope: telescope) }
 
   def create
     if telescope.save
@@ -19,7 +20,9 @@ class TelescopesController < ApplicationController
   end
 
   def destroy
-    telescope.destroy
+    if telescope.destroy
+      redirect_to(telescope)
+    end
   end
 
   # FIXME: needed only for JSON view
