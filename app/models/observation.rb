@@ -1,5 +1,6 @@
 class Observation
   include Mongoid::Document
   field :scheduled_at, type: Date
-  embedded_in :telescope
+  belongs_to :telescope
+  belongs_to :reservation
 end

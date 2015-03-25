@@ -4,7 +4,13 @@ class ReservationsController < ApplicationController
   expose(:telescope)
 
   def create
-    if reservation.save
+    observation = telescope.observations.
+      where(scheduled_at: reservation.scheduled_at, reservation_id: nil).first
+
+    reservation.observation = observation
+    reservation.telescope = telescope
+
+    if reservation.save && observation.save
       redirect_to([telescope, reservation])
     else
       render :new
