@@ -53,6 +53,7 @@ gem "bootstrap-sass"
 gem "decent_exposure"
 gem "active_model_serializers", "~> 0.8.0"
 gem "devise"
+gem "geocoder"
 
 gem "momentjs-rails"
 gem "bootstrap3-datetimepicker-rails"
