@@ -3,5 +3,7 @@
 
 <p>You have successfully booked the telescope <%= link_to telescope.name, telescope %> for <%= reservation.scheduled_at.to_formatted_s(:long) %>.</p>
 
+<hr>
+
 <%= link_to 'Edit', edit_telescope_reservation_path %>
 <%= link_to 'Back', telescope_reservations_path %>
