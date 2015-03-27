@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
 
-  resources :telescopes do
-    resources :observations
+  namespace :account do
+    resources :telescopes, except: [:show] do
+      resources :observations
+    end
+  end
+
+  resources :telescopes, only: [:index, :show] do
     resources :reservations
   end
 
