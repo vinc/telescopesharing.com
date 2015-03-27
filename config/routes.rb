@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :account do
-    resources :telescopes, except: [:show] do
-      resources :observations
-    end
+    resources :telescopes, only: :index
   end
 
-  resources :telescopes, only: [:index, :show] do
+  resources :telescopes do
     resources :reservations
+    resources :observations
   end
 
   root "welcome#index"
