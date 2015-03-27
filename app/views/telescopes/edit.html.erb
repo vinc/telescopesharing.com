@@ -5,4 +5,5 @@
 <hr>
 
 <%= link_to 'Show', telescope %> |
-<%= link_to 'Back', telescopes_path %>
+<%= link_to 'Destroy', telescope, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', account_telescopes_path %>
