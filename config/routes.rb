@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :telescopes, only: :index
+    resources :reservations, only: :index
   end
 
   resources :telescopes do

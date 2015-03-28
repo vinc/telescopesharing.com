@@ -1,9 +1,7 @@
 <h1>Reservation</h1>
-<p id="notice"><%= notice %></p>
 
-<p>You have successfully booked the telescope <%= link_to telescope.name, telescope %> for <%= reservation.scheduled_at.to_formatted_s(:long) %>.</p>
+<div class="alert alert-success" role="alert">You have successfully booked the telescope <%= link_to telescope.name, telescope %> for <%= reservation.scheduled_at.to_formatted_s(:long) %>.</div>
 
 <hr>
 
-<%= link_to 'Edit', edit_telescope_reservation_path %>
-<%= link_to 'Back', telescope_reservations_path %>
+<p><%= link_to 'Cancel reservation', telescope_reservation_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
