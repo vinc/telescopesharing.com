@@ -48,3 +48,7 @@ $headings-font-weight: 900;
 .form-control {
   font-family: $font-family-monospace;
 }
+
+.leaflet-container a {
+  color: inherit;
+}
