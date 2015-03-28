@@ -9,20 +9,28 @@
     <%= f.input :address %>
     <%= f.input :description, as: :text %>
 
-    <div class="form-group observations" style="position:relative">
-      <%= f.fields_for :observations do |observation_fields| %>
-        <% if observation_fields.object.new_record? || observation_fields.object.scheduled_at > Date.today %>
-          <%= observation_fields.input :scheduled_at, wrapper: :vertical_input_group, label: "Observation" do %>
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-            <%= observation_fields.input_field :scheduled_at, placeholder: "YYYY-MM-DD", class: "form-control" %>
-          <% end %>
-
+    <fieldset>
+      <legend>Observations</legend>
+      <div class="form-group">
+        <%= f.fields_for :observations, telescope.observations.gt(scheduled_at: Date.yesterday).asc(:scheduled_at) do |observation_fields| %>
+          <div class="row">
+            <div class="col-xs-9 col-sm-6">
+              <%= observation_fields.input :scheduled_at, wrapper: :vertical_input_group, label: false do %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                <%= observation_fields.input_field :scheduled_at, placeholder: "YYYY-MM-DD", class: "form-control", disabled: observation_fields.object.persisted? %>
+              <% end %>
+            </div>
+            <div class="col-xs-3 col-sm-6">
+              <p class="form-control-static"><%= observation_fields.link_to_remove "Remove", data: { confirm: "Are you sure?" } %></p>
+            </div>
+          </div>
         <% end %>
-      <% end %>
-      <%= f.link_to_add 'Add an upcomming observation', :observations %>
-    </div>
+        <%= f.link_to_add 'Add an upcomming observation', :observations %>
+      </div>
+    </fieldset>
+
     <%= f.button :submit %>
   </div>
 <% end %>
