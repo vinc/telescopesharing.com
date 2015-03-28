@@ -49,6 +49,9 @@ $headings-font-weight: 900;
   font-family: $font-family-monospace;
 }
 
-.leaflet-container a {
-  color: inherit;
+.leaflet-container {
+  font: inherit;
+  a {
+    color: inherit;
+  }
 }
