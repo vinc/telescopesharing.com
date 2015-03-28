@@ -14,6 +14,7 @@
  *= require_self
  */
 
+$font-family-monospace: "Droid Sans Mono", monospace;
 $font-family-sans-serif: "Raleway", sans-serif;
 //$body-bg: #222;
 //$gray-base: #777;
@@ -22,7 +23,28 @@ $headings-color: #555;
 $headings-font-family: "Lato", sans-serif;
 $headings-font-weight: 900;
 
-@import url(http://fonts.googleapis.com/css?family=Lato:900|Raleway);
+@import url(http://fonts.googleapis.com/css?family=Lato:900|Raleway|Droid+Sans+Mono);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
+
+.telescope_observations_scheduled_at,
+.reservation_scheduled_at {
+  .input-group {
+    .input-group-addon {
+      cursor: pointer;
+    }
+
+    .bootstrap-datetimepicker-widget {
+      z-index: 2000; /* Datepicker widget above Leaflet map */
+      .disabled {
+        color: #ccc;
+      }
+    }
+  }
+}
+
+.input-group,
+.form-control {
+  font-family: $font-family-monospace;
+}
