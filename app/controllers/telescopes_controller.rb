@@ -53,6 +53,7 @@ class TelescopesController < ApplicationController
       require(:telescope).
       permit(
         :name, :address, :description,
+        :tube_type, :aperture, :focal_length, :mount_type,
         observations_attributes: [:id, :scheduled_at, :_destroy],
       )
   end

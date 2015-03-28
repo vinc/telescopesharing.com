@@ -5,9 +5,20 @@
   </div>
 
   <div class="form-actions">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description, as: :text %>
+    <fieldset>
+      <legend>Informations</legend>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :description, as: :text %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Specifications</legend>
+      <%= f.input :aperture %>
+      <%= f.input :focal_length %>
+      <%= f.input :tube_type %>
+      <%= f.input :mount_type %>
+    </fieldset>
 
     <fieldset>
       <legend>Observations</legend>

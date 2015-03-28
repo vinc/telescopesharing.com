@@ -4,8 +4,15 @@ class Telescope
 
   field :name
   field :description
+
+  field :tube_type
+  field :aperture, type: Integer
+  field :focal_length, type: Integer
+  field :mount_type
+
   field :address
   field :coordinates, type: Array
+
   belongs_to :user
   has_many :reservations
   has_many :observations
@@ -15,5 +22,9 @@ class Telescope
 
   def available_observations
     self.observations.where(reservation_id: nil).gt(scheduled_at: Date.today)
+  end
+
+  def focal_ratio
+    Float(focal_length) / aperture
   end
 end
