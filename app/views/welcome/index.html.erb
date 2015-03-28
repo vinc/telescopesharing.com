@@ -14,18 +14,6 @@
     attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
-  /*
-  L.tileLayer('http://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
-    attribution: 'GIBS/NASA',
-    bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
-    format: 'jpg',
-    minZoom: 1,
-    maxZoom: 8,
-    time: '',
-    tilematrixset: 'GoogleMapsCompatible_Level'
-  }).addTo(map);
-  */
-
   var markers = [];
 
   <% telescopes.each do |telescope| %>
@@ -33,7 +21,7 @@
       var html =
         '<h3>' + <%= telescope.name.to_json.html_safe %> + '</h3>' +
         '<p>' + <%= telescope.description.to_json.html_safe %> + '</p>' +
-        '<p>' + '<%= link_to "Check availability", telescope_path(telescope) %>' + '</p>';
+        '<p class="text-center">' + '<%= link_to "Check availability", telescope_path(telescope), class: "btn btn-default", role: "button" %>' + '</p>';
 
       markers.push(L.marker(<%= telescope.coordinates.reverse.to_json.html_safe %>)
         .bindPopup(html)
