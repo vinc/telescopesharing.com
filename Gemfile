@@ -54,6 +54,7 @@ gem "bootstrap-sass"
 gem "decent_exposure"
 gem "active_model_serializers", "~> 0.8.0"
 gem "devise"
+gem "devise-bootstrap-views"
 gem "geocoder"
 
 gem "momentjs-rails"

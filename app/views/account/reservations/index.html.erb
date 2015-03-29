@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Telescope</th>
       <th>Date</th>
       <th colspan="2">Actions</th>
     </tr>
@@ -11,6 +12,7 @@
   <tbody>
     <% reservations.each do |reservation| %>
       <tr>
+        <td><%= link_to reservation.telescope.name, reservation.telescope %></td>
         <td><%= reservation.scheduled_at %></td>
         <td><%= link_to 'Show', telescope_reservation_path(reservation.telescope, reservation) %></td>
         <td><%= link_to 'Cancel', telescope_reservation_path(reservation.telescope, reservation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
