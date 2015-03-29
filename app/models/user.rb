@@ -36,4 +36,8 @@ class User
 
   field :name, type: String
   has_many :telescopes
+
+  def remember_me
+    true
+  end
 end
