@@ -5,10 +5,11 @@ class Telescope
   field :name
   field :description
 
-  field :tube_type
   field :aperture, type: Integer
   field :focal_length, type: Integer
+  field :tube_type
   field :mount_type
+  field :camera_type
 
   field :address
   field :coordinates, type: Array
@@ -25,6 +26,10 @@ class Telescope
   end
 
   def focal_ratio
-    Float(focal_length) / aperture
+    focal_length.to_f / aperture unless focal_length.nil? || aperture.nil?
+  end
+
+  def angular_resolution
+    116.0 / aperture
   end
 end
