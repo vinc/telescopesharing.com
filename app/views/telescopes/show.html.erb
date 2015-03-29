@@ -3,13 +3,21 @@
 <p><%= telescope.description %></p>
 
 <dl class="dl-horizontal">
-  <dt>Aperture</dt><dd><%= number_to_distance(telescope.aperture / 1000.0) %></dd>
-  <dt>Focal length</dt><dd><%= number_to_distance(telescope.focal_length / 1000.0) %></dd>
-  <dt>Focal ratio</dt><dd><%= number_with_precision(telescope.focal_ratio, precision: 2) %></dd>
-  <dt>Resolution</dt><dd><%= number_with_precision(telescope.angular_resolution, precision: 2) %> arc seconds</dd>
+  <% unless telescope.aperture.blank? || telescope.focal_length.blank? %>
+    <dt>Aperture</dt><dd><%= number_to_distance(telescope.aperture || 0 / 1000.0) %></dd>
+    <dt>Focal length</dt><dd><%= number_to_distance(telescope.focal_length || 0 / 1000.0) %></dd>
+    <dt>Focal ratio</dt><dd><%= number_with_precision(telescope.focal_ratio, precision: 2) %></dd>
+    <dt>Resolution</dt><dd><%= number_with_precision(telescope.angular_resolution, precision: 2) %> arc seconds</dd>
+  <% end %>
+  <% unless telescope.tube_type.blank? %>
   <dt>Tube type</dt><dd><%= telescope.tube_type %></dd>
+  <% end %>
+  <% unless telescope.mount_type.blank? %>
   <dt>Mount type</dt><dd><%= telescope.mount_type %></dd>
+  <% end %>
+  <% unless telescope.camera_type.blank? %>
   <dt>Camera</dt><dd><%= telescope.camera_type %></dd>
+  <% end %>
 </dl>
 
 <hr>

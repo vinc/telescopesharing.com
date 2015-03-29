@@ -26,10 +26,10 @@ class Telescope
   end
 
   def focal_ratio
-    focal_length.to_f / aperture unless focal_length.nil? || aperture.nil?
+    focal_length.to_f / aperture unless focal_length.blank? || aperture.blank?
   end
 
   def angular_resolution
-    116.0 / aperture
+    116.0 / aperture unless aperture.blank?
   end
 end
