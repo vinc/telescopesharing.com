@@ -4,8 +4,8 @@
 
 <dl class="dl-horizontal">
   <% unless telescope.aperture.blank? || telescope.focal_length.blank? %>
-    <dt>Aperture</dt><dd><%= number_to_distance(telescope.aperture || 0 / 1000.0) %></dd>
-    <dt>Focal length</dt><dd><%= number_to_distance(telescope.focal_length || 0 / 1000.0) %></dd>
+    <dt>Aperture</dt><dd><%= number_to_distance(telescope.aperture / 1000.0) %></dd>
+    <dt>Focal length</dt><dd><%= number_to_distance(telescope.focal_length / 1000.0) %></dd>
     <dt>Focal ratio</dt><dd><%= number_with_precision(telescope.focal_ratio, precision: 2) %></dd>
     <dt>Resolution</dt><dd><%= number_with_precision(telescope.angular_resolution, precision: 2) %> arc seconds</dd>
   <% end %>
