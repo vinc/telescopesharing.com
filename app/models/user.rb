@@ -37,6 +37,9 @@ class User
   field :name
   has_many :telescopes
 
+  validates_uniqueness_of :name
+  validates_uniqueness_of :email
+
   def remember_me
     true
   end
