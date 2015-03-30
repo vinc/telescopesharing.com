@@ -5,6 +5,7 @@
     <tr>
       <th>Telescope</th>
       <th>Date</th>
+      <th>Status</th>
       <th colspan="2">Actions</th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
             <%= observation.scheduled_at %>
           <% end %>
         </td>
+        <td><%= observation.status.capitalize %></td>
         <td><%= link_to 'Show', telescope_observation_path(observation.telescope, observation) %></td>
         <td>
           <% if observation.scheduled_at >= Date.today %>

@@ -6,4 +6,8 @@ class Reservation
   belongs_to :user
   validates_presence_of :observation
   validates_presence_of :telescope
+
+  def accepted?
+    false
+  end
 end
