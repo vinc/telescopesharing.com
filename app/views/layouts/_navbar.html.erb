@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-top">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "TelescopeSharing", root_path, class: "navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-top">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to "Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Telescopes", account_telescopes_path %></li>
+              <li><%= link_to "Reservations", account_reservations_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- navbar-collapse -->
+  </div><!-- container -->
+</nav>
