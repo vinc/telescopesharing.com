@@ -22,7 +22,7 @@ class Telescope
   after_validation :geocode
 
   def available_observations
-    self.observations.where(reservation_id: nil).gt(scheduled_at: Date.today)
+    self.observations.where(reservation_id: nil).gt(scheduled_on: Date.today)
   end
 
   def focal_ratio

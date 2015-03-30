@@ -41,6 +41,6 @@ class ObservationsController < ApplicationController
   end
 
   def observation_params
-    params.require(:observation).permit(:scheduled_at)
+    params.require(:observation).permit(:scheduled_on)
   end
 end

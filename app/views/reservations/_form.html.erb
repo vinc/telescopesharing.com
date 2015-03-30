@@ -2,18 +2,18 @@
   <%= f.error_notification %>
 
   <div class="form-group">
-    <%= f.input :scheduled_at, wrapper: :vertical_input_group, label: false do %>
+    <%= f.input :scheduled_on, wrapper: :vertical_input_group, label: false do %>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
-      <%= f.input_field :scheduled_at, placeholder: "YYYY-MM-DD", class: "form-control" %>
+      <%= f.input_field :scheduled_on, placeholder: "YYYY-MM-DD", class: "form-control" %>
     <% end %>
   </div>
   <script type="text/javascript">
     $(function () {
-      $(".reservation_scheduled_at .input-group").datetimepicker({
+      $(".reservation_scheduled_on .input-group").datetimepicker({
         format: "YYYY-MM-DD",
-        enabledDates: <%= telescope.available_observations.pluck(:scheduled_at).to_json.html_safe %>
+        enabledDates: <%= telescope.available_observations.pluck(:scheduled_on).to_json.html_safe %>
       });
     });
   </script>

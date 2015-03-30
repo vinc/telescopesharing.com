@@ -54,7 +54,7 @@ class TelescopesController < ApplicationController
       permit(
         :name, :address, :description,
         :aperture, :focal_length, :tube_type, :mount_type, :camera_type,
-        observations_attributes: [:id, :scheduled_at, :_destroy],
+        observations_attributes: [:id, :scheduled_on, :_destroy],
       )
   end
 end

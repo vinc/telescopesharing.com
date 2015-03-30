@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
 
   def create
     observation = telescope.observations.
-      where(scheduled_at: reservation.scheduled_at, reservation_id: nil).first
+      where(scheduled_on: reservation.scheduled_on, reservation_id: nil).first
 
     reservation.user = current_user
     reservation.telescope = telescope
@@ -46,6 +46,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:scheduled_at)
+    params.require(:reservation).permit(:scheduled_on)
   end
 end

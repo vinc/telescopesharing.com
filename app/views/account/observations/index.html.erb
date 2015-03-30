@@ -15,16 +15,16 @@
       <tr>
         <td><%= link_to observation.telescope.name, observation.telescope %></td>
         <td>
-          <% if observation.scheduled_at >= Date.today %>
-            <strong><%= observation.scheduled_at %></strong>
+          <% if observation.scheduled_on >= Date.today %>
+            <strong><%= observation.scheduled_on %></strong>
           <% else %>
-            <%= observation.scheduled_at %>
+            <%= observation.scheduled_on %>
           <% end %>
         </td>
         <td><%= observation.status.capitalize %></td>
         <td><%= link_to 'Show', telescope_observation_path(observation.telescope, observation) %></td>
         <td>
-          <% if observation.scheduled_at >= Date.today %>
+          <% if observation.scheduled_on >= Date.today %>
             <%= link_to 'Cancel', telescope_observation_path(observation.telescope, observation), method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>

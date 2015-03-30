@@ -8,6 +8,6 @@ class TelescopeSerializer < ActiveModel::Serializer
   end
 
   def observations
-    object.observations.gt(scheduled_at: Date.today)
+    object.observations.gt(scheduled_on: Date.today)
   end
 end

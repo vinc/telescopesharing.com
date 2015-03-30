@@ -1,6 +1,6 @@
 <h1>Reservation</h1>
 
-<div class="alert alert-success" role="alert">You have successfully booked the telescope <%= link_to telescope.name, telescope %> for <%= reservation.scheduled_at.to_formatted_s(:long) %>.</div>
+<div class="alert alert-success" role="alert">You have successfully booked the telescope <%= link_to telescope.name, telescope %> for <%= reservation.scheduled_on.to_formatted_s(:long) %>.</div>
 
 <hr>
 
