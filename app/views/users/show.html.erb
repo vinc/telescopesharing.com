@@ -1,1 +1,14 @@
 <h1><%= user.name %></h1>
+
+<p>Member since <%= time_tag user.created_at.to_date %>.</p>
+
+<hr>
+
+<% if user.telescopes.count > 0 %>
+  <h3>Telescopes</h3>
+  <ul>
+    <% user.telescopes.each do |telescope| %>
+      <li><%= link_to telescope.name, telescope %></li>
+    <% end %>
+  </ul>
+<% end %>
