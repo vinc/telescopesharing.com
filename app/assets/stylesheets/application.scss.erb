@@ -24,10 +24,71 @@ $headings-color: #555;
 $headings-font-family: "Lato", sans-serif;
 $headings-font-weight: 900;
 
-@import url(http://fonts.googleapis.com/css?family=Lato:900|Raleway|Droid+Sans+Mono);
+@import url(http://fonts.googleapis.com/css?family=Lato:700,900|Raleway|Droid+Sans+Mono);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
+
+html {
+  height: 100%;
+}
+
+body.landing-page {
+  height: 100%;
+
+  .navbar {
+    margin-bottom: 0;
+  }
+  > .container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 25px; /* half the height of the navbar */
+    width: 100%;
+  }
+
+  section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .landing-welcome {
+    background-image: url(<%= asset_path 'background_small.jpg' %>);
+    background-size: cover;
+    margin-top: -50px; /* height of the navbar */
+
+    h1 {
+      color: #fff;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+      font-size: 4em;
+      font-weight: 900;
+    }
+    h2 {
+      color: #fff;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+      font-size: 2em;
+      font-weight: 700;
+    }
+    hr {
+      display: none;
+    }
+  }
+
+  .landing-telescopes {
+    width: 75%;
+    margin: auto;
+  }
+}
 
 .telescope_observations_scheduled_at,
 .reservation_scheduled_at {
