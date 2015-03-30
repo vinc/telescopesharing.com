@@ -1,7 +1,12 @@
 <h1>Observation</h1>
 
 <% if observation.reservation %>
-  <p>Reserved by <%= link_to observation.reservation.user.name, observation.reservation.user %>.</p>
+  <p>
+    Reserved by <%= link_to observation.reservation.user.name, observation.reservation.user %>
+    <% if observation.reservation.pending? %>
+      (<%= link_to "accept", accept_telescope_reservation_path(telescope, observation.reservation), method: :put %>/<%= link_to "decline", decline_telescope_reservation_path(telescope, observation.reservation), method: :put %>)
+    <% end %>
+  </p>
 <% else %>
   <p>No reservation yet.</p>
 <% end %>

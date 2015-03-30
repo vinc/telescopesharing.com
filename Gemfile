@@ -56,6 +56,7 @@ gem "active_model_serializers", "~> 0.8.0"
 gem "devise"
 gem "devise-bootstrap-views"
 gem "geocoder"
+gem "aasm"
 
 gem "momentjs-rails"
 gem "bootstrap3-datetimepicker-rails"

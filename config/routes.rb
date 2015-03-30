@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   end
 
   resources :telescopes do
-    resources :reservations
+    resources :reservations do
+      member do
+        put "accept"
+        put "decline"
+      end
+    end
     resources :observations
   end
 

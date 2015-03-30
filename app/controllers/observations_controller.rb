@@ -25,8 +25,9 @@ class ObservationsController < ApplicationController
   end
 
   def destroy
-    # FIXME: Remove reservation for observation automatically
-    if observation.reservation.destroy && observation.destroy
+    observation.reservation.cancel
+
+    if observation.destroy
       redirect_to(telescope)
     end
   end
