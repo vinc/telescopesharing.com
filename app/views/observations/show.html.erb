@@ -1,0 +1,11 @@
+<h1>Observation</h1>
+
+<% if observation.reservation %>
+  <p>Reserved by <%= link_to observation.reservation.user.name, observation.reservation.user %>.</p>
+<% else %>
+  <p>No reservation yet.</p>
+<% end %>
+
+<hr>
+
+<p><%= link_to 'Cancel observation', telescope_observation_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>

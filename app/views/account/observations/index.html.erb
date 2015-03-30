@@ -1,0 +1,32 @@
+<h1>Observations</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Telescope</th>
+      <th>Date</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% observations.each do |observation| %>
+      <tr>
+        <td><%= link_to observation.telescope.name, observation.telescope %></td>
+        <td>
+          <% if observation.scheduled_at >= Date.today %>
+            <strong><%= observation.scheduled_at %></strong>
+          <% else %>
+            <%= observation.scheduled_at %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', telescope_observation_path(observation.telescope, observation) %></td>
+        <td>
+          <% if observation.scheduled_at >= Date.today %>
+            <%= link_to 'Cancel', telescope_observation_path(observation.telescope, observation), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
