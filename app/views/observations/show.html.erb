@@ -11,6 +11,8 @@
   <p>No reservation yet.</p>
 <% end %>
 
+  <p>Observation scheduled on <strong><%= time_tag observation.scheduled_on %></strong> with the telescope <%= link_to telescope.name, telescope %>.</p>
+
 <hr>
 
 <div class="panel panel-default">
