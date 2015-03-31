@@ -1,6 +1,12 @@
 <h1>Reservation</h1>
 
-<div class="alert alert-success" role="alert">You have successfully booked the telescope <%= link_to telescope.name, telescope %> for <%= reservation.scheduled_on.to_formatted_s(:long) %>.</div>
+<% if reservation.status == "pending" %>
+  <div class="alert alert-warning" role="alert">Your reservation for the telescope <%= link_to telescope.name, telescope %> on <strong><%= time_tag reservation.scheduled_on %></strong> is currently pending.</div>
+<% elsif reservation.status == "accepted" %>
+  <div class="alert alert-success" role="alert">Your reservation for the telescope <%= link_to telescope.name, telescope %> on <strong><%= time_tag reservation.scheduled_on %></strong> has been accepted.</div>
+<% elsif reservation.status == "declined" %>
+  <div class="alert alert-danger" role="alert">Your reservation for the telescope <%= link_to telescope.name, telescope %> on <strong><%= time_tag reservation.scheduled_on %></strong> has been declined.</div>
+<% end %>
 
 <hr>
 

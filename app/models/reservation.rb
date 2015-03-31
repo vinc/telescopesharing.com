@@ -13,6 +13,10 @@ class Reservation
   validates_presence_of :telescope
   validates_presence_of :user
 
+  def status
+    aasm_state
+  end
+
   aasm do
     state :pending, initial: true
     state :accepted
