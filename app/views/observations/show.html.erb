@@ -13,4 +13,27 @@
 
 <hr>
 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Messages</h3>
+  </div>
+  <div class="panel-body">
+    <% if observation.messages.empty? %>
+      <p class="text-muted">No messages.</p>
+    <% end %>
+
+    <% observation.messages.each do |message| %>
+      <p>
+        <strong><%= link_to message.user.name, message.user %>:</strong>
+        <span class="text-muted" style="float:right"><%= time_tag message.created_at %></span><br>
+        <%= message.content %>
+      </p>
+    <% end %>
+
+    <%= render "messages/form", locals: { observation_id: observation.id } %>
+  </div>
+</div>
+
+<hr>
+
 <p><%= link_to 'Cancel observation', telescope_observation_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>

@@ -38,6 +38,8 @@ class User
 
   field :name
   has_many :telescopes
+  has_many :messages
+  belongs_to :message
 
   validates_uniqueness_of :name
   validates_uniqueness_of :email

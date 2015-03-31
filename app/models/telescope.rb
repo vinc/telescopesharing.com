@@ -15,6 +15,7 @@ class Telescope
   field :coordinates, type: Array
 
   belongs_to :user
+  has_many :messages
   has_many :reservations
   has_many :observations
   accepts_nested_attributes_for :observations, allow_destroy: true

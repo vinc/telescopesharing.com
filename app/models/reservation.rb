@@ -1,10 +1,12 @@
 class Reservation
   include Mongoid::Document
+  include Mongoid::Timestamps
   include AASM
 
   field :aasm_state
   field :scheduled_on, type: Date # FIXME: Duplicate with observation
 
+  has_many :messages
   belongs_to :observation
   belongs_to :telescope
   belongs_to :user

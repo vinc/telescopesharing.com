@@ -5,6 +5,7 @@ class Observation
   field :reserved, type: Boolean, default: false
 
   has_many :reservations
+  has_many :messages
   belongs_to :telescope
 
   def self.available

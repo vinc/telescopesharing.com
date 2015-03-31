@@ -5,6 +5,7 @@ class ObservationsController < ApplicationController
   expose(:observations)
   expose(:observation, attributes: :observation_params)
   expose(:telescope)
+  expose(:message) { Message.new(observation: observation) }
 
   def create
     observation.telescope = telescope

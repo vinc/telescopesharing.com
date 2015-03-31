@@ -1,0 +1,6 @@
+<%= simple_form_for(message) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :observation_id, as: :hidden %>
+  <%= f.input :content, as: :text, label: false, placeholder: "Message" %>
+  <%= f.button :submit, "Send" %>
+<% end %>
