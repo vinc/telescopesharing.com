@@ -10,14 +10,15 @@ class ReservationsController < ApplicationController
   def create
     reservation.attributes = reservation_params
 
-    observation = telescope.observations.
-      where(scheduled_on: reservation.scheduled_on, reservation_id: nil).first
+    # TODO: Use find_and_modify for atomicity
+    observations = telescope.observations
+    observation = observations.available_on(reservation.scheduled_on).first
 
     reservation.user = current_user
     reservation.telescope = telescope
     reservation.observation = observation
 
-    if reservation.save && observation.save
+    if reservation.save && observation.update(reserved: true)
       redirect_to([telescope, reservation])
     else
       render :new
@@ -34,8 +35,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    # FIXME: Remove reservation from observation automatically
-    if reservation.observation.update(reservation: nil) && reservation.destroy
+    if reservation.observation.update(reserved: false) && reservation.destroy
       redirect_to(telescope)
     end
   end

@@ -2,30 +2,39 @@ class Observation
   include Mongoid::Document
 
   field :scheduled_on, type: Date
+  field :reserved, type: Boolean, default: false
 
+  has_many :reservations
   belongs_to :telescope
-  belongs_to :reservation
+
+  def self.available
+    where(reserved: false)
+  end
+
+  def self.available_on(date)
+    available.where(scheduled_on: date)
+  end
+
+  def self.available_after(date)
+    available.gt(scheduled_on: date)
+  end
+
+  def reservation # FIXME: Rename it active_reservation
+    reservations.not.where(aasm_state: "canceled").first
+  end
 
   def status
-    if reservation.nil?
+    if reserved?
+      if scheduled_on < Date.today
+        "done"
+      else
+        reservation.aasm_state
+      end
+    else
       if scheduled_on < Date.today
         "canceled"
       else
         "available"
-      end
-    else
-      if scheduled_on < Date.today
-        if reservation.accepted?
-          "done"
-        else
-          "canceled"
-        end
-      else
-        if reservation.accepted?
-          "reserved"
-        else
-          "pending"
-        end
       end
     end
   end

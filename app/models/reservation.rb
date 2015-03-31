@@ -5,11 +5,13 @@ class Reservation
   field :aasm_state
   field :scheduled_on, type: Date # FIXME: Duplicate with observation
 
-  has_one :observation
+  belongs_to :observation
   belongs_to :telescope
   belongs_to :user
+
   validates_presence_of :observation
   validates_presence_of :telescope
+  validates_presence_of :user
 
   aasm do
     state :pending, initial: true
