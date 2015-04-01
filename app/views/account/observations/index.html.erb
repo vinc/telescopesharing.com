@@ -21,7 +21,13 @@
             <%= observation.scheduled_on %>
           <% end %>
         </td>
-        <td><%= observation.status.capitalize %></td>
+        <td>
+          <% if observation.status == "pending" %>
+            <span class="text-danger"><%= observation.status.capitalize %></span>
+          <% else %>
+            <%= observation.status.capitalize %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', telescope_observation_path(observation.telescope, observation) %></td>
         <td>
           <% if observation.scheduled_on >= Date.today %>
