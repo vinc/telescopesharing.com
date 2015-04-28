@@ -63,8 +63,14 @@ class User
     Observation.in(id: a + b)
   end
 
+  def reservations
+    a = Reservation.in(telescope: telescope_ids).pluck(:id) # as operator
+    b = Reservation.where(user: self).pluck(:id)
+    Reservation.in(id: a + b)
+  end
+
   def pending_reservations
-    observation_ids = observations.upcomming.pluck(:id)
-    Reservation.in(observation: observation_ids).where(aasm_state: "pending")
+    #Reservation.in(telescope: telescope_ids).where(aasm_state: "pending")
+    reservations.where(aasm_state: "pending")
   end
 end
