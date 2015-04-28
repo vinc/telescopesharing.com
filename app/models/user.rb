@@ -44,6 +44,15 @@ class User
   validates_uniqueness_of :name
   validates_uniqueness_of :email
 
+  attr_accessor :invite_code
+  validate :invite_code_valid, on: :create
+
+  def invite_code_valid
+    unless self.invite_code == ENV["INVITE_CODE"]
+      self.errors.add(:invite_code, "invalid.")
+    end
+  end
+
   def remember_me
     true
   end
