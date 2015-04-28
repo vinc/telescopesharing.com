@@ -58,7 +58,9 @@ class User
   end
 
   def observations
-    Observation.in(telescope: telescope_ids)
+    a = Observation.in(telescope: telescope_ids).pluck(:id) # as operator
+    b = Reservation.where(user: self).pluck(:observation_id) # as user
+    Observation.in(id: a + b)
   end
 
   def pending_reservations
