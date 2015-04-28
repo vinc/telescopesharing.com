@@ -14,8 +14,20 @@
     <% reservations.each do |reservation| %>
       <tr>
         <td><%= link_to reservation.telescope.name, reservation.telescope %></td>
-        <td><%= reservation.scheduled_on %></td>
-        <td><%= reservation.status.capitalize %></td>
+        <td>
+          <% if reservation.scheduled_on >= Date.today %>
+            <strong><%= reservation.scheduled_on %></strong>
+          <% else %>
+            <%= reservation.scheduled_on %>
+          <% end %>
+        </td>
+        <td>
+          <% if reservation.status == "pending" %>
+            <span class="text-danger"><%= reservation.status.capitalize %></span>
+          <% else %>
+            <%= reservation.status.capitalize %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', telescope_reservation_path(reservation.telescope, reservation) %></td>
         <td><%= link_to 'Cancel', telescope_reservation_path(reservation.telescope, reservation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
