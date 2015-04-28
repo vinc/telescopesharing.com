@@ -13,7 +13,7 @@
 
   <tbody>
     <% observations.each do |observation| %>
-      <tr>
+      <tr class="<%= observation.scheduled_on < Date.today ? "text-muted" : "" %>">
         <td>
           <% if observation.telescope.user == current_user %>
             Operator
@@ -23,11 +23,7 @@
         </td>
         <td><%= link_to observation.telescope.name, observation.telescope %></td>
         <td>
-          <% if observation.scheduled_on >= Date.today %>
-            <strong><%= observation.scheduled_on %></strong>
-          <% else %>
-            <%= observation.scheduled_on %>
-          <% end %>
+          <%= observation.scheduled_on %>
         </td>
         <td>
           <% if observation.status == "pending" %>
