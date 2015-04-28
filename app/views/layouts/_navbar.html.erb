@@ -21,12 +21,19 @@
               <li>
                 <%= link_to account_observations_path do %>
                   Observations
+                  <% if current_user.observations.upcomming.count > 0 %>
+                    <span class="badge"><%= current_user.observations.upcomming.count %></span>
+                  <% end %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to account_reservations_path do %>
+                  Reservations
                   <% if current_user.pending_reservations.count > 0 %>
                     <span class="badge"><%= current_user.pending_reservations.count %></span>
                   <% end %>
                 <% end %>
               </li>
-              <li><%= link_to "Reservations", account_reservations_path %></li>
               <li class="divider"></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             </ul>
