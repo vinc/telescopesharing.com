@@ -7,23 +7,24 @@
   <div class="form-actions">
     <fieldset>
       <legend>Informations</legend>
-      <%= f.input :name %>
-      <%= f.input :address %>
-      <%= f.input :description, as: :text %>
+      <%= f.input :name, placeholder: "Name of the telescope" %>
+      <%= f.input :address, placeholder: "Location of the telescope" %>
+      <%= f.input :description, as: :text, placeholder: "Description of the telescope (model, accessories, ...)" %>
     </fieldset>
 
     <fieldset>
       <legend>Specifications</legend>
-      <%= f.input :aperture %>
-      <%= f.input :focal_length %>
-      <%= f.input :tube_type %>
-      <%= f.input :mount_type %>
-      <%= f.input :camera_type %>
+      <%= f.input :aperture, placeholder: "0", hint: "(in millimeter)" %>
+      <%= f.input :focal_length, placeholder: "0", hint: "(in millimeter)" %>
+      <%= f.input :tube_type, placeholder: "Newtonian, Maksutov-Cassegrain, ..." %>
+      <%= f.input :mount_type, placeholder: "Altazimuth, Equatorial, ..." %>
+      <%= f.input :camera_type, placeholder: "Reflex, Webcam, ..." %>
     </fieldset>
 
     <fieldset>
       <legend>Observations</legend>
       <div class="form-group">
+        <%= f.input :observation_description, label: "Informations", as: :text, placeholder: "Informations about a typical observation (beginning and ending time within a timezone, ...)" %>
         <%= f.fields_for :observations, telescope.observations.gt(scheduled_on: Date.yesterday).asc(:scheduled_on) do |observation_fields| %>
           <div class="row">
             <div class="col-xs-9 col-sm-6">

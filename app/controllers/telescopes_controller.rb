@@ -52,7 +52,7 @@ class TelescopesController < ApplicationController
     params.
       require(:telescope).
       permit(
-        :name, :address, :description,
+        :name, :address, :description, :observation_description,
         :aperture, :focal_length, :tube_type, :mount_type, :camera_type,
         observations_attributes: [:id, :scheduled_on, :_destroy],
       )

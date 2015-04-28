@@ -4,6 +4,7 @@ class Telescope
 
   field :name
   field :description
+  field :observation_description
 
   field :aperture, type: Integer
   field :focal_length, type: Integer

@@ -23,6 +23,8 @@
 
 <hr>
 
+<p><%= telescope.observation_description %></p>
+
 <% if telescope.available_observations.any? %>
   <%= render "reservations/form" %>
 <% else %>
