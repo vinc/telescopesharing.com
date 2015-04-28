@@ -20,7 +20,10 @@
               <li><%= link_to "Telescopes", account_telescopes_path %></li>
               <li>
                 <%= link_to account_observations_path do %>
-                  Observations <span class="badge"><%= current_user.pending_reservations.count %></span>
+                  Observations
+                  <% if current_user.pending_reservations.count > 0 %>
+                    <span class="badge"><%= current_user.pending_reservations.count %></span>
+                  <% end %>
                 <% end %>
               </li>
               <li><%= link_to "Reservations", account_reservations_path %></li>
