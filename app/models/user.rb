@@ -59,7 +59,8 @@ class User
 
   def pending_reservations
     telescope_ids = telescopes.pluck(:id)
-    observation_ids = Observation.in(telescope: telescope_ids).pluck(:id)
+    observations = Observation.upcomming.in(telescope: telescope_ids)
+    observation_ids = observations.pluck(:id)
     Reservation.in(observation: observation_ids).where(aasm_state: "pending")
   end
 end

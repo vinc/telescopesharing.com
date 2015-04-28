@@ -8,6 +8,10 @@ class Observation
   has_many :messages
   belongs_to :telescope
 
+  def self.upcomming
+    gt(scheduled_on: Date.current)
+  end
+
   def self.available
     where(reserved: false)
   end
