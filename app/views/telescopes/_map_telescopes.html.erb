@@ -14,7 +14,7 @@
       var html =
         '<h3>' + <%= telescope.name.to_json.html_safe %> + '</h3>' +
         '<p>' + <%= telescope.description.to_json.html_safe %> + '</p>' +
-        '<p class="text-center">' + '<%= link_to "Check availability", telescope_path(telescope), class: "btn btn-default", role: "button" %>' + '</p>';
+        '<p class="text-center">' + '<%= link_to "View telescope", telescope_path(telescope), class: "btn btn-default", role: "button" %>' + '</p>';
 
       markers.push(L.marker(<%= telescope.coordinates.reverse.to_json.html_safe %>)
         .bindPopup(html)
