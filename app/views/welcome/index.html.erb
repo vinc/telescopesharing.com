@@ -12,8 +12,15 @@
 
 <section class="landing-telescopes">
   <div class="middle">
-    <h1 class="text-center">Find a telescope.</h1>
+    <h1 class="text-center">Find a remote telescope.</h1>
 
     <%= render "telescopes/map_telescopes" %>
+  </div>
+</section>
+
+<section class="landing-share">
+  <div class="middle">
+    <h1 class="text-center">Already got one? Share it!</h1>
+    <p class="text-center"><%= link_to "Sign up", new_user_session_path, class: "btn btn-success btn-lg" %></p>
   </div>
 </section>
